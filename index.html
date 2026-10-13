@@ -1,1 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plinth | Solid furniture for everyday rooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chalk:#ECEEE9; --chalk-2:#DDE2DA; --pine:#1E3B33; --oak:#D4A56A; --moss:#9DB296; --ink:#17201D;
+  --display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --body:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--chalk);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--oak);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.025em}
 
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0}
+.logo{font:800 1.75rem var(--display);letter-spacing:-.04em;text-decoration:none}
+nav{display:flex;gap:2rem;font-weight:500}
+nav a{text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--oak)}
+.cart{font:600 .95rem var(--body);background:var(--ink);color:var(--chalk);border:0;border-radius:99px;padding:.6rem 1.2rem;cursor:pointer}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:stretch;padding:2rem 0 4rem}
+.hero-copy{display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(3rem,7vw,5.9rem);font-weight:800}
+.hero p{max-width:34rem;margin:1.5rem 0 2rem;font-size:1.2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;font:600 1rem var(--body);text-decoration:none;padding:.9rem 1.6rem;border-radius:99px;background:var(--pine);color:var(--chalk);border:2px solid var(--pine);transition:background .2s,color .2s}
+.btn:hover{background:var(--oak);border-color:var(--oak);color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--chalk);border-color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 0;margin-top:2.5rem;font-size:.95rem}
+.facts span{padding-right:1.25rem;margin-right:1.25rem;border-right:1px solid rgba(23,32,29,.3)}
+.facts span:last-child{border:0;margin:0;padding:0}
+
+.stage{position:relative;background:var(--pine);border-radius:200px 200px 24px 24px;min-height:520px;overflow:hidden}
+.stage svg{position:absolute;left:0;bottom:0;width:100%;height:100%}
+.glow{transform-origin:50% 40%;animation:glow 2.4s ease-out .3s both}
+@keyframes glow{from{opacity:0}to{opacity:1}}
+.rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.rise.d1{animation-delay:.1s}.rise.d2{animation-delay:.25s}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* section heads */
+section{padding:4.5rem 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.head h2{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;max-width:15ch}
+.head p{max-width:26rem}
+
+/* collections */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.tile{position:relative;border-radius:22px;padding:1.75rem;overflow:hidden;min-height:260px;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end}
+.tile h3{font-size:2rem;font-weight:800}
+.tile span{font-size:.95rem}
+.tile svg{position:absolute;right:1rem;top:1rem;width:58%;max-width:340px;transition:transform .35s ease}
+.tile:hover svg{transform:translateY(-6px) rotate(-2deg)}
+.t-seat{grid-column:span 4;grid-row:span 2;background:var(--oak);min-height:540px}
+.t-seat svg{width:78%;max-width:520px;right:1.5rem;top:2rem}
+.t-table{grid-column:span 2;background:var(--moss)}
+.t-light{grid-column:span 2;background:var(--pine);color:var(--chalk)}
+.t-store{grid-column:span 6;background:var(--chalk-2);min-height:230px}
+.t-store svg{width:34%;max-width:300px;top:50%;margin-top:-90px;right:2rem}
+
+/* products */
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.p-img{border-radius:22px;aspect-ratio:4/4.2;display:grid;place-items:center;margin-bottom:1rem}
+.p-img svg{width:70%}
+.p:nth-child(1) .p-img{background:var(--chalk-2)}
+.p:nth-child(2) .p-img{background:var(--moss)}
+.p:nth-child(3) .p-img{background:var(--oak)}
+.p-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.p h3{font-size:1.45rem;font-weight:600}
+.price{font:600 1.2rem var(--display)}
+.p small{display:block;font-size:.95rem;opacity:.75;margin:.15rem 0 .9rem}
+.add{font:600 .95rem var(--body);background:transparent;border:2px solid var(--ink);border-radius:99px;padding:.5rem 1.2rem;cursor:pointer;transition:background .2s,color .2s}
+.add:hover,.add.done{background:var(--ink);color:var(--chalk)}
+
+/* promise */
+.promise{background:var(--pine);color:var(--chalk);border-radius:32px;padding:clamp(2rem,5vw,4.5rem);display:grid;grid-template-columns:1fr 1.1fr;gap:3rem}
+.promise h2{font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:800}
+.promise dl{display:grid;gap:1.75rem}
+.promise dt{font:600 1.4rem var(--display);color:var(--oak);margin-bottom:.15rem}
+.promise dd{opacity:.9;max-width:34rem}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.visit h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;margin-bottom:1rem}
+.hours{margin-top:1.25rem;padding-left:1rem;border-left:4px solid var(--oak)}
+form{display:flex;gap:.5rem;background:#fff;padding:.4rem;border-radius:99px}
+input{flex:1;min-width:0;border:0;background:transparent;font:inherit;padding:.6rem 1rem;border-radius:99px}
+input:focus-visible{outline-offset:0}
+form .btn{padding:.7rem 1.4rem}
+.note{font-size:.9rem;margin-top:.75rem;min-height:1.4em}
+
+footer{padding:2.5rem 0 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.95rem;border-top:1px solid rgba(23,32,29,.2)}
+footer nav{gap:1.5rem}
+
+@media (max-width:860px){
+  nav{display:none}
+  .hero,.promise,.visit{grid-template-columns:1fr}
+  .stage{min-height:420px;border-radius:160px 160px 24px 24px}
+  .products{grid-template-columns:1fr}
+  .t-seat,.t-table,.t-light,.t-store{grid-column:span 6;grid-row:auto;min-height:300px}
+  .t-seat{min-height:420px}
+  .t-store svg{width:45%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">Plinth</a>
+    <nav aria-label="Main">
+      <a href="#collections">Collections</a>
+      <a href="#new">New in</a>
+      <a href="#craft">Our craft</a>
+      <a href="#visit">Showroom</a>
+    </nav>
+    <button class="cart" id="cart" type="button">Cart (0)</button>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-copy">
+        <h1>Furniture for rooms you actually live in.</h1>
+        <p>Solid oak, wool and linen pieces, made in small batches and delivered fully assembled to the room you choose.</p>
+        <div class="btns">
+          <a class="btn" href="#collections">Shop the collection</a>
+          <a class="btn ghost" href="#visit">Book a showroom visit</a>
+        </div>
+        <div class="facts">
+          <span>10-year frame warranty</span>
+          <span>Free assembled delivery</span>
+          <span>60-day returns</span>
+        </div>
+      </div>
+
+      <div class="stage" role="img" aria-label="Illustration of an oak armchair beside a brass floor lamp">
+        <svg viewBox="0 0 500 560" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <defs>
+            <radialGradient id="g" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#F3D9A4" stop-opacity=".75"/>
+              <stop offset="1" stop-color="#F3D9A4" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle class="glow" cx="378" cy="190" r="170" fill="url(#g)"/>
+          <rect x="0" y="470" width="500" height="90" fill="#16302A"/>
+          <!-- lamp -->
+          <g class="rise d2">
+            <rect x="374" y="226" width="8" height="244" fill="#D4A56A"/>
+            <ellipse cx="378" cy="470" rx="38" ry="8" fill="#D4A56A"/>
+            <path d="M330 232 L346 150 H410 L426 232 Z" fill="#F3E3C0"/>
+          </g>
+          <!-- armchair -->
+          <g class="rise d1">
+            <rect x="70" y="190" width="200" height="190" rx="52" fill="#9DB296"/>
+            <rect x="40" y="300" width="64" height="130" rx="30" fill="#8AA183"/>
+            <rect x="236" y="300" width="64" height="130" rx="30" fill="#8AA183"/>
+            <rect x="82" y="326" width="176" height="86" rx="26" fill="#B2C5AB"/>
+            <rect x="92" y="412" width="14" height="58" rx="4" fill="#D4A56A"/>
+            <rect x="234" y="412" width="14" height="58" rx="4" fill="#D4A56A"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <section id="collections">
+      <div class="head">
+        <h2>Four ways to furnish a room</h2>
+        <p>Start with the piece you sit in most, then build outward.</p>
+      </div>
+      <div class="grid">
+        <a class="tile t-seat" href="#new">
+          <svg viewBox="0 0 400 220" aria-hidden="true">
+            <rect x="40" y="40" width="320" height="100" rx="34" fill="#1E3B33"/>
+            <rect x="10" y="90" width="70" height="90" rx="28" fill="#2B5146"/>
+            <rect x="320" y="90" width="70" height="90" rx="28" fill="#2B5146"/>
+            <rect x="60" y="100" width="280" height="64" rx="22" fill="#356454"/>
+            <rect x="50" y="180" width="12" height="26" fill="#17201D"/>
+            <rect x="338" y="180" width="12" height="26" fill="#17201D"/>
+          </svg>
+          <h3>Seating</h3><span>Sofas, armchairs and benches</span>
+        </a>
+        <a class="tile t-table" href="#new">
+          <svg viewBox="0 0 300 200" aria-hidden="true">
+            <rect x="20" y="70" width="260" height="22" rx="11" fill="#1E3B33"/>
+            <rect x="52" y="92" width="14" height="90" fill="#1E3B33"/>
+            <rect x="234" y="92" width="14" height="90" fill="#1E3B33"/>
+            <circle cx="150" cy="52" r="18" fill="#D4A56A"/>
+          </svg>
+          <h3>Tables</h3><span>Dining, coffee and side</span>
+        </a>
+        <a class="tile t-light" href="#new">
+          <svg viewBox="0 0 300 240" aria-hidden="true">
+            <path d="M100 100 L116 30 H184 L200 100 Z" fill="#F3E3C0"/>
+            <rect x="146" y="100" width="8" height="110" fill="#D4A56A"/>
+            <ellipse cx="150" cy="212" rx="40" ry="8" fill="#D4A56A"/>
+          </svg>
+          <h3>Lighting</h3><span>Floor, table and pendant</span>
+        </a>
+        <a class="tile t-store" href="#new">
+          <svg viewBox="0 0 300 180" aria-hidden="true">
+            <rect x="30" y="10" width="240" height="160" rx="6" fill="none" stroke="#1E3B33" stroke-width="10"/>
+            <rect x="30" y="85" width="240" height="10" fill="#1E3B33"/>
+            <rect x="55" y="40" width="30" height="45" fill="#D4A56A"/>
+            <rect x="92" y="55" width="22" height="30" fill="#9DB296"/>
+            <circle cx="200" cy="63" r="22" fill="#1E3B33"/>
+            <rect x="60" y="115" width="60" height="55" fill="#9DB296"/>
+            <rect x="170" y="125" width="70" height="45" fill="#D4A56A"/>
+          </svg>
+          <h3>Storage</h3><span>Shelving, sideboards and wardrobes</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="new">
+      <div class="head">
+        <h2>New this season</h2>
+        <p>Three pieces our makers finished in September. Each ships within two weeks.</p>
+      </div>
+      <div class="products">
+        <article class="p">
+          <div class="p-img">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <rect x="50" y="36" width="100" height="90" rx="26" fill="#1E3B33"/>
+              <rect x="28" y="92" width="34" height="62" rx="16" fill="#2B5146"/>
+              <rect x="138" y="92" width="34" height="62" rx="16" fill="#2B5146"/>
+              <rect x="46" y="104" width="108" height="44" rx="14" fill="#356454"/>
+              <rect x="52" y="148" width="9" height="34" fill="#D4A56A"/>
+              <rect x="139" y="148" width="9" height="34" fill="#D4A56A"/>
+            </svg>
+          </div>
+          <div class="p-row"><h3>Sora armchair</h3><span class="price">$890</span></div>
+          <small>Oak frame, boiled wool</small>
+          <button class="add" type="button">Add to cart</button>
+        </article>
+        <article class="p">
+          <div class="p-img">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <rect x="14" y="80" width="172" height="16" rx="8" fill="#1E3B33"/>
+              <path d="M44 96 L60 176 M156 96 L140 176" stroke="#1E3B33" stroke-width="10" stroke-linecap="round"/>
+              <ellipse cx="100" cy="68" rx="22" ry="8" fill="#D4A56A"/>
+            </svg>
+          </div>
+          <div class="p-row"><h3>Ridge dining table</h3><span class="price">$1,640</span></div>
+          <small>Solid oak, seats six</small>
+          <button class="add" type="button">Add to cart</button>
+        </article>
+        <article class="p">
+          <div class="p-img">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <rect x="50" y="20" width="100" height="160" fill="none" stroke="#1E3B33" stroke-width="8"/>
+              <rect x="50" y="64" width="100" height="7" fill="#1E3B33"/>
+              <rect x="50" y="116" width="100" height="7" fill="#1E3B33"/>
+              <rect x="62" y="36" width="20" height="28" fill="#1E3B33"/>
+              <circle cx="122" cy="52" r="11" fill="#9DB296"/>
+              <rect x="70" y="84" width="40" height="32" fill="#9DB296"/>
+              <rect x="106" y="136" width="30" height="44" fill="#1E3B33"/>
+            </svg>
+          </div>
+          <div class="p-row"><h3>Nook shelf</h3><span class="price">$520</span></div>
+          <small>Ash and powder-coated steel</small>
+          <button class="add" type="button">Add to cart</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="craft" style="padding-top:1rem">
+      <div class="promise">
+        <h2>Built to be repaired, not replaced.</h2>
+        <dl>
+          <div><dt>Joined, not stapled</dt><dd>Every frame uses mortise-and-tenon or dowel joints, so a chair can be tightened and used for decades.</dd></div>
+          <div><dt>Finished by hand</dt><dd>Hard-wax oil on all timber. Scratches sand out, and we send the oil with every order.</dd></div>
+          <div><dt>Delivered ready to use</dt><dd>Our crew carries it in, places it, and takes the packaging away.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="visit">
+      <div class="visit">
+        <div>
+          <h2>Sit in it before you buy it.</h2>
+          <p>Our showroom has every frame, fabric and finish on the floor. Book a time and a designer will walk you through them.</p>
+          <p class="hours">Tuesday to Sunday, 10 am to 7 pm<br>Closed on Mondays</p>
+        </div>
+        <div>
+          <p style="margin-bottom:.75rem;font-weight:600">Get first look at new pieces</p>
+          <form id="news">
+            <label for="email" style="position:absolute;left:-9999px">Email address</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+          <p class="note" id="note" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Plinth Furniture</span>
+    <nav aria-label="Footer"><a href="#">Delivery</a><a href="#">Returns</a><a href="#">Care guide</a><a href="#">Contact</a></nav>
+  </footer>
+</div>
+
+<script>
+  var count = 0, cart = document.getElementById('cart');
+  document.querySelectorAll('.add').forEach(function(b){
+    b.addEventListener('click', function(){
+      count++; cart.textContent = 'Cart (' + count + ')';
+      b.textContent = 'Added'; b.classList.add('done');
+      setTimeout(function(){ b.textContent = 'Add to cart'; b.classList.remove('done'); }, 1600);
+    });
+  });
+  document.getElementById('news').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('note').textContent = 'Subscribed. Watch your inbox for the next arrivals.';
+    e.target.reset();
+  });
+</script>
+</body>
+</html>
